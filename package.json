@@ -1,0 +1,26 @@
+{
+  "name": "neuron-mod-sample",
+  "version": "0.0.0",
+  "main": "src/calculator.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supersheep/neuron-mod-sample.git"
+  },
+  "author": "Spud",
+  "license": "BSD",
+  "description": "neuron-mod-sample\r =================",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-mocha": "~0.3.1",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-mocha-test": "~0.2.2",
+    "chai": "~1.6.0",
+    "mocha": "~1.9.0",
+    "sinon": "~1.6.0"
+  }
+}

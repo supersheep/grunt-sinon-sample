@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="lib/sinon.js" ></script>
+    <script src="lib/chai.js" type="text/javascript"></script>
+    <script src="lib/mocha.js" ></script>
+    <script src="lib/jquery-2.0.0.min.js" ></script>
+    <script src="lib/test.js" ></script>
+    <link rel="stylesheet" href="lib/mocha.css">
+    <script>mocha.setup('bdd')</script>
+</head>
+<body>
+    <div id="mocha"></div>
+    <script>
+
+        assert = chai.assert;
+        expect = chai.expect;
+        chai.should();
+
+        describe("test once", function() {
+          it("should be called only once", function() { 
+              var callback = sinon.spy();
+              var proxy = once(callback);
+              proxy();
+              proxy();
+              assert(callback.callCount==1);
+          });
+        });
+
+        describe("test getTodolist",function(){
+            after(function(){
+                // 测完之后把真正的jQuery.ajax物归原主
+                jQuery.ajax.restore();
+            });
+            it("makes get request for todo items",function(){
+                sinon.stub(jQuery,"ajax"); // 模拟一个假的
+                getTodos(42,sinon.spy()); // 再模拟一个匿名函数传到getTodos里去
+                assert(jQuery.ajax.calledWithMatch({url:"/todo/42/items"})) 
+                // 确认jQuery.ajax被以期待中的参数调用了
+            });  
+        });
+
+        if(!window.PHANTOMJS){
+          // let it be able to run in browser
+          mocha.setup("bdd");
+          mocha.run();
+        }
+    </script>
+</body>
+</html>
