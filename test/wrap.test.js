@@ -18,6 +18,6 @@ describe("test wrap",function(){
         fs.readFileSync.restore();
     });
     it("should return <(=v=)>",function(){
-        assert.equal(wrap("a.txt"),"<(=v=)=>");
+        assert.equal(wrap("a.txt"),"<(=v=)>");
     });
 });

@@ -18,14 +18,6 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        connect: {
-            server: {
-              options: {
-                port: 1234,
-                base: '.'
-              }
-            }
-        },
         mocha: {
             browser: ['test/**/*.html'],
             options: {
@@ -51,6 +43,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-mocha-test");
     grunt.loadNpmTasks("grunt-contrib-uglify");
 
-    grunt.registerTask("test", ["connect", "mocha", "mochaTest"]);
+    grunt.registerTask("test", ["mocha", "mochaTest"]);
     grunt.registerTask("default", ["jshint", "uglify"]);
 }
