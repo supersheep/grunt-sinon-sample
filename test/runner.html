@@ -6,6 +6,7 @@
     <script src="lib/mocha.js" ></script>
     <script src="lib/jquery-2.0.0.min.js" ></script>
     <script src="lib/test.js" ></script>
+    <script>mocha.setup("bdd");</script>
     <link rel="stylesheet" href="lib/mocha.css">
 </head>
 <body>
@@ -41,7 +42,6 @@
 
         if(!window.PHANTOMJS){
           // let it be able to run in browser
-          mocha.setup("bdd");
           mocha.run();
         }
     </script>
